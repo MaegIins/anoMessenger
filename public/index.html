@@ -23,8 +23,8 @@
         </div>
         <div id="input">
             <input type="color" id="color" v-model="color">
-            <input type="text" v-model="message" placeholder="Enter your message" @keyup.enter="sendMessage">
-            <input type="button" v-on:click="sendMessage">
+            <input type="text" v-model="message" placeholder="Enter your message" id="text" @keyup.enter="sendMessage">
+            <input type="button" v-on:click="sendMessage" id="button">
         </div>
     </div>
 </div>

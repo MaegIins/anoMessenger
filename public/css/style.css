@@ -12,6 +12,9 @@
   text-align: center;
   color: #000000;
 }
+#container #messageGlobal {
+  position: relative;
+}
 #container #messageGlobal #dispMessage {
   background: linear-gradient(100deg, #26dcff, rgb(99, 199, 218));
   border-radius: 15px;
@@ -26,6 +29,16 @@
   color: #000000;
   position: absolute;
   right: 0;
+}
+#container #messageGlobal #input {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+#container #messageGlobal #input #color {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
 }
 
 /*# sourceMappingURL=style.css.map */

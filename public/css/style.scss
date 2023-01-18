@@ -17,6 +17,7 @@
   }
 
   #messageGlobal{
+    position: relative;
     #dispMessage{
       background: linear-gradient(100deg, #26dcff, rgb(99, 199, 218));
       border-radius: 15px;
@@ -33,6 +34,20 @@
         position: absolute;
         right: 0;
       }
+    }
+
+    #input{
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      #color{
+        height: 50px;
+        width: 50px;
+        border-radius: 50px;
+        
+      }
+      #text{}
+      #button{}
     }
   }
 
