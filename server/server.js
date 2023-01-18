@@ -33,7 +33,7 @@ io.on("connection", (socket) => {
         users.push(user);
     });
     socket.on('newMessage', (message) => {
-        if(message.content !== ""){
+        if(message.content !== "" && message.date !== ""){
             messages.push(message);
             users.forEach((user) => {
                 emitSocket("newMessage", user.id, message);
