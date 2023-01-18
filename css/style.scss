@@ -1,0 +1,39 @@
+#container{
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+    width: 95vw;
+
+
+
+  #title{
+    font-size: 2em;
+    font-weight: bold;
+    margin: -50px;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+
+  }
+
+  #messageGlobal{
+    #dispMessage{
+      background: linear-gradient(100deg, #26dcff, rgb(99, 199, 218));
+      border-radius: 15px;
+      padding: 10px;
+      margin: 25px;
+      font-size: 1.5em;
+      position: relative;
+      color: #000000;
+
+
+      #time{
+        font-size: 0.7em;
+        color: #000000;
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+
+}

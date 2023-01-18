@@ -8,23 +8,29 @@ let myVueApp = Vue.createApp({
     data() {
         return {
             message: '',
+            color: '',
             listMessages: [],
         }
 
     },
     methods: {
         sendMessage() {
+            let date = new Date();
+            let color = this.color;
             let messageSent = {
                 message: this.message,
-                hour : Date()
+                hour: date.getHours(),
+                minute: date.getMinutes(),
+                color: color,
             }
 
-            this.listMessages.push(messageSent)
+            if (this.message !== '') {
+                this.listMessages.push(messageSent)
+            }
             this.message = ''
         }
     }
 })
-
 
 
 myVueApp.mount('#container');
