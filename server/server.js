@@ -23,7 +23,8 @@ io.on("connection", (socket) => {
         }
         let handcheck = {
             users: users,
-            messages: messages
+            messages: messages,
+            color : user.color
         }
         emitSocket("handcheck", socket.id, handcheck);
         users.forEach((socketuser) => {
