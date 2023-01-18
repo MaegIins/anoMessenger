@@ -8,8 +8,9 @@ let myVueApp = Vue.createApp({
     data() {
         return {
             message: '',
-            color: '',
+            color: '#26dcff',
             listMessages: [],
+            chars : 640,
         }
 
     },
@@ -25,10 +26,16 @@ let myVueApp = Vue.createApp({
             }
 
             if (this.message !== '') {
+
                 this.listMessages.push(messageSent)
+
             }
             this.message = ''
-        }
+        },
+
+
+
+
     }
 })
 

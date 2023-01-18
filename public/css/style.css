@@ -1,8 +1,15 @@
+@import url(https://fonts.googleapis.com/css2?family=Happy+Monkey);
+body {
+  overflow-x: hidden;
+  top: 0;
+  left: 0;
+  font-family: "Happy Monkey", cursive;
+}
+
 #container {
   display: flex;
   flex-direction: column;
-  height: 95vh;
-  width: 95vw;
+  height: 100%;
 }
 #container #title {
   font-size: 2em;
@@ -10,7 +17,8 @@
   margin: -50px;
   align-items: center;
   text-align: center;
-  color: #000000;
+  color: #181818;
+  background: url(https://media.tenor.com/7hd53a2Fg30AAAAC/monkey-dancing.gif) center;
 }
 #container #messageGlobal {
   position: relative;
@@ -30,15 +38,67 @@
   position: absolute;
   right: 0;
 }
+#container #messageGlobal #spacer {
+  height: 200px;
+}
 #container #messageGlobal #input {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
+  background: #ffffff;
 }
-#container #messageGlobal #input #color {
-  height: 50px;
-  width: 50px;
+#container #messageGlobal #input #inputt {
+  display: flex;
+  flex-direction: row;
+}
+#container #messageGlobal #input #inputt #color {
+  height: 70px;
+  width: 70px;
   border-radius: 50px;
+  margin: 3px;
+}
+#container #messageGlobal #input #inputt #text {
+  width: 90%;
+  height: 50px;
+  border-radius: 15px;
+  border: 1px solid #000000;
+  padding: 10px;
+  font-size: 1.5em;
+  color: #000000;
+  margin: 3px;
+}
+#container #messageGlobal #input #inputt #button {
+  height: 70px;
+  width: 70px;
+  border-radius: 50px;
+  background: linear-gradient(100deg, #26dcff, rgb(99, 199, 218));
+  color: #ffffff;
+  padding: 10px;
+  font-size: 1.5em;
+  border: 1px solid #000000;
+  align-items: center;
+  text-align: center;
+  margin: 3px;
+}
+
+input[type=color] {
+  -webkit-appearance: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(75, 75, 75);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ffffff;
 }
 
 /*# sourceMappingURL=style.css.map */

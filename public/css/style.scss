@@ -1,24 +1,37 @@
-#container{
+$white: #eeeeee;
+$black: #181818;
+@import url(https://fonts.googleapis.com/css2?family=Happy+Monkey);
+
+body {
+  overflow-x: hidden;
+  top : 0;
+  left : 0;
+  font-family: 'Happy Monkey', cursive;
+}
+
+
+#container {
   display: flex;
   flex-direction: column;
-  height: 95vh;
-    width: 95vw;
+  height: 100%;
 
 
-
-  #title{
+  #title {
     font-size: 2em;
     font-weight: bold;
     margin: -50px;
     align-items: center;
     text-align: center;
-    color: #000000;
+    color: $black;
+    background: url(https://media.tenor.com/7hd53a2Fg30AAAAC/monkey-dancing.gif) center;
 
   }
 
-  #messageGlobal{
+  #messageGlobal {
     position: relative;
-    #dispMessage{
+
+
+    #dispMessage {
       background: linear-gradient(100deg, #26dcff, rgb(99, 199, 218));
       border-radius: 15px;
       padding: 10px;
@@ -28,27 +41,93 @@
       color: #000000;
 
 
-      #time{
+      #time {
         font-size: 0.7em;
         color: #000000;
         position: absolute;
         right: 0;
       }
+
+
     }
 
-    #input{
-      position: absolute;
+    #spacer {
+      height: 200px;
+    }
+
+
+    #input {
+      position: fixed;
       bottom: 0;
       width: 100%;
-      #color{
-        height: 50px;
-        width: 50px;
-        border-radius: 50px;
-        
+
+      background: #ffffff;
+
+      #inputt {
+        display: flex;
+        flex-direction: row;
+
+
+
+        #color {
+          height: 70px;
+          width: 70px;
+          border-radius: 50px;
+          margin: 3px;
+
+        }
+
+        #text {
+          width: 90%;
+          height: 50px;
+          border-radius: 15px;
+          border: 1px solid #000000;
+          padding: 10px;
+          font-size: 1.5em;
+          color: #000000;
+          margin: 3px;
+        }
+
+        #button {
+          height: 70px;
+          width: 70px;
+          border-radius: 50px;
+          background: linear-gradient(100deg, #26dcff, rgb(99, 199, 218));
+          color: #ffffff;
+          padding: 10px;
+          font-size: 1.5em;
+          border: 1px solid #000000;
+          align-items: center;
+          text-align: center;
+          margin: 3px;
+
+
+        }
       }
-      #text{}
-      #button{}
     }
   }
 
 }
+
+input[type="color"] {
+  -webkit-appearance: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(75, 75, 75);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ffffff;
+}
+
+
