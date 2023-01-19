@@ -18,7 +18,6 @@ let myVueApp = Vue.createApp({
     created()
     {
         this.socket = io(':3000');
-
         if(window.localStorage.getItem('color') !== null){
             this.color = window.localStorage.getItem('color');
             this.socket.emit('handcheck', this.color);
@@ -34,7 +33,7 @@ let myVueApp = Vue.createApp({
             this.saveColor();
         });
         this.socket.on('newMessage',  (msg)=> {
-            this.listMessages.push(msg);
+            this.addMessage(msg);
         });
     },
     methods: {
@@ -53,14 +52,18 @@ let myVueApp = Vue.createApp({
                 date: h+":"+m,
                 color: this.color,
             }
-
             if (this.message !== '') {
 
-                this.listMessages.push(messageSent)
+                this.addMessage(messageSent)
                 this.socket.emit('newMessage', messageSent);
 
             }
             this.message = ''
+        },
+        addMessage(message) {
+            this.listMessages.push(message);
+            window.scroll(0, document.getElementById("messageGlobal").scrollHeight + document.getElementById("spacer").scrollHeight);
+
         },
         saveColor(){
             window.localStorage.setItem('color', this.color);
