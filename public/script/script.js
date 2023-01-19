@@ -18,14 +18,11 @@ let myVueApp = Vue.createApp({
     created()
     {
         this.socket = io(':3000');
-        console.log("Socket created");
 
         if(window.localStorage.getItem('color') !== null){
             this.color = window.localStorage.getItem('color');
-            console.log("Color loaded");
             this.socket.emit('handcheck', this.color);
         }else{
-            console.log("Color not loaded");
             this.socket.emit('handcheck');
         }
 
@@ -66,7 +63,6 @@ let myVueApp = Vue.createApp({
             this.message = ''
         },
         saveColor(){
-            console.log("save")
             window.localStorage.setItem('color', this.color);
         }
     }
