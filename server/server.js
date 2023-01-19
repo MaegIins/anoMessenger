@@ -17,7 +17,7 @@ let messages = [];
  */
 io.on("connection", (socket) => {
     socket.on("handcheck", (cl) => {
-        let color = "";
+        let color;
         console.log(cl)
         if(cl){
             color=cl;
