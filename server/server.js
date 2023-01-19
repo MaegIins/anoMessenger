@@ -7,7 +7,7 @@ const io = new Server(httpServer, {
         methods: ["GET", "POST"]
     }
 });
-const colors = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF", "#000000", "#FFFFFF"];
+const colors = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF", , "#FFFFFF"];
 let users = [];
 let messages = [];
 /**
