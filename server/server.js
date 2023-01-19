@@ -35,12 +35,19 @@ io.on("connection", (socket) => {
     socket.on('newMessage', (message) => {
         if(message.content !== "" && message.date !== ""){
             messages.push(message);
+            if(messages.length > 100){
+                messages.shift();
+            }
             users.forEach((user) => {
                 if(user.id !== socket.id){
                 emitSocket("newMessage", user.id, message);
                 }
             });
         }
+    });
+    socket.on('disconnect', function(){
+        let user = users.find((user) => user.id === socket.id);
+        users = users.filter((user) => user.id !== socket.id);
     });
 
 });
