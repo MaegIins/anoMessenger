@@ -25,7 +25,7 @@
         <div id="spacer"></div>
         <div id="input">
             <div id="inputt">
-                <input type="color" id="color" v-model="color">
+                <input type="color" id="color" v-model="color" @change="saveColor">
                 <input type="text" maxlength="640" v-model="message" placeholder="Enter your message" id="text"
                        @keyup.enter="sendMessage">
                 <button v-on:click="sendMessage" id="button" :style="{background: color}"><i class="bi bi-send"></i>

@@ -16,10 +16,18 @@ let messages = [];
  * Send new user to all instances except the new instance (emit : addUser)
  */
 io.on("connection", (socket) => {
-    socket.on("handcheck", () => {
+    socket.on("handcheck", (cl) => {
+        let color = "";
+        console.log(cl)
+        if(cl){
+            color=cl;
+        }else
+        {
+            color = getColor();
+        }
         let user = {
             id: socket.id,
-            color : getColor()
+            color : color
         }
         let handcheck = {
             users: users,
