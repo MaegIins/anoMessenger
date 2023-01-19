@@ -11,23 +11,46 @@ let myVueApp = Vue.createApp({
             color: '#26dcff',
             listMessages: [],
             chars : 640,
+            socket : null,
         }
 
+    },
+    created()
+    {
+        this.socket = io(':3000');
+        this.socket.emit('handcheck');
+
+    },
+    mounted() {
+        this.socket.on('handcheck',  (data) => {
+            this.color = data.color;
+            this.listMessages = data.messages;
+        });
+        this.socket.on('newMessage',  (msg)=> {
+            this.listMessages.push(msg);
+        });
     },
     methods: {
         sendMessage() {
             let date = new Date();
-            let color = this.color;
+            let h = date.getHours();
+            let m = date.getMinutes();
+            if(h<10){
+                h = "0"+h;
+            }
+            if(m<10){
+                m = "0"+m;
+            }
             let messageSent = {
                 message: this.message,
-                hour: date.getHours(),
-                minute: date.getMinutes(),
-                color: color,
+                date: h+":"+m,
+                color: this.color,
             }
 
             if (this.message !== '') {
 
                 this.listMessages.push(messageSent)
+                this.socket.emit('newMessage', messageSent);
 
             }
             this.message = ''

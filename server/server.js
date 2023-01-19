@@ -36,7 +36,9 @@ io.on("connection", (socket) => {
         if(message.content !== "" && message.date !== ""){
             messages.push(message);
             users.forEach((user) => {
+                if(user.id !== socket.id){
                 emitSocket("newMessage", user.id, message);
+                }
             });
         }
     });
