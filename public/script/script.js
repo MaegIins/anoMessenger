@@ -61,7 +61,11 @@ let myVueApp = Vue.createApp({
             this.message = ''
         },
         addMessage(message) {
+            let regex = /\[img\](.*?)\[\/img\]/g;
+            message.images = message.message.replace(regex, "<img src='$1' />")
+
             this.listMessages.push(message);
+
             window.scroll(0, document.getElementById("messageGlobal").scrollHeight + document.getElementById("spacer").scrollHeight);
 
         },

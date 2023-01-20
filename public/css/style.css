@@ -32,6 +32,13 @@ body {
   position: relative;
   color: #000000;
 }
+#dispMessage div{
+  padding: 15px;
+}
+#dispMessage div img{
+  max-width: 250px;
+    max-height: 250px;
+}
 #container #messageGlobal #dispMessage #time {
   font-size: 0.7em;
   color: #000000;

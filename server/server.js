@@ -40,7 +40,7 @@ io.on("connection", (socket) => {
         users.push(user);
     });
     socket.on('newMessage', (message) => {
-        if(message.content !== "" && message.date !== ""){
+        if(message.message !== "" && message.date !== ""){
             messages.push(message);
             if(messages.length > 100){
                 messages.shift();
