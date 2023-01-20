@@ -39,7 +39,7 @@
         <div id="input">
             <div id="inputt">
                 <input type="color" id="color" v-model="color" @change="saveColor">
-                <textarea maxlength="640" v-model="message" placeholder="Enter your message" id="text" @keydown.enter.alt.exact.prevent="message+= '\n'" @keyup.enter.exact.prevent="sendMessage" >
+                <textarea maxlength="640" v-model="message" placeholder="Enter your message" id="text" @keydown.alt.enter.exact.prevent="message+= '\n'" @keydown.enter.exact.prevent="sendMessage" >
 
                 </textarea>
                 <button v-on:click="sendMessage" id="button" :style="{background: color}"><i class="bi bi-send"></i>
