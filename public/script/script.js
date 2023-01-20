@@ -17,7 +17,7 @@ let myVueApp = Vue.createApp({
     },
     created()
     {
-        this.socket = io('192.168.74.215:3000');
+        this.socket = io('https://SaneExhaustedArchitecture.therealeureka.repl.co');
         if(window.localStorage.getItem('color') !== null){
             this.color = window.localStorage.getItem('color');
             this.socket.emit('handcheck', this.color);
