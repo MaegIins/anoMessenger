@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AnoMessenger</title>
+    <title>MonkeyMessenger</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" rel="stylesheet">
@@ -18,7 +18,19 @@
     </div>
     <div id="messageGlobal">
         <div v-for="message in listMessages" id="dispMessage" :style="{background: message.color}">
-            <div>{{message.message}}</div>
+            <div>
+                <template v-for="content in message.content">
+                    <template v-if="content.type==='img'">
+                        <img :src="content.data" alt="image">
+                    </template>
+                    <template v-else-if="content.type==='url'">
+                        <a :href="content.data" target="_blank">{{content.data}}</a>
+                    </template>
+                    <template v-else>
+                        <p>{{content.data}}</p>
+                    </template>
+                </template>
+            </div>
             <p id="time">{{message.date}}</p>
 
         </div>
@@ -26,13 +38,14 @@
         <div id="input">
             <div id="inputt">
                 <input type="color" id="color" v-model="color" @change="saveColor">
-                <input type="text" maxlength="640" v-model="message" placeholder="Enter your message" id="text"
-                       @keyup.enter="sendMessage">
+                <textarea maxlength="640" v-model="message" placeholder="Enter your message" id="text" @keydown.enter.alt.exact.prevent="message+= '\n'" @keyup.enter.exact.prevent="sendMessage" >
+
+                </textarea>
                 <button v-on:click="sendMessage" id="button" :style="{background: color}"><i class="bi bi-send"></i>
                 </button>
             </div>
             <div id="chars">
-                <p>{{chars-message.length}} characters remaining</p>
+                <p>{{chars-message.length}} characters remaining  &nbsp;&nbsp; - &nbsp;&nbsp; [img]IMG[/img] [url]URL[/url]</p>
             </div>
 
         </div>

@@ -87,9 +87,13 @@ body {
   align-items: center;
   text-align: center;
   margin: 3px;
+  margin-right: 10px;
   cursor: pointer;
 }
-
+p{
+  padding : 0;
+  margin: 0;
+}
 input[type=color] {
   -webkit-appearance: none;
   border: none;

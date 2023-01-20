@@ -29,7 +29,11 @@ let myVueApp = Vue.createApp({
     mounted() {
         this.socket.on('handcheck',  (data) => {
             this.color = data.color;
-            this.listMessages = data.messages;
+            if(data.messages){
+                data.messages.forEach((message) => {
+                    this.addMessage(message);
+                });
+            }
             this.saveColor();
         });
         this.socket.on('newMessage',  (msg)=> {
@@ -61,9 +65,44 @@ let myVueApp = Vue.createApp({
             this.message = ''
         },
         addMessage(message) {
-            let regex = /\[img\](.*?)\[\/img\]/g;
-            message.images = message.message.replace(regex, "<img src='$1' />")
+            let regex = /(\[.*][^\]]*\[\/.*])/g;
+            let content = message.message.split(regex);
 
+            message.content = [];
+          content.forEach((item, index) => {
+
+
+                    let obj = {
+                        data: "",
+                        type: "",
+                    }
+                    if(item.includes('img')){
+                        console.log('itinial '  +item)
+                        obj.data = item.replace("[img]", "").replace("[/img]", "").replace(/\\n|\/n/,"");
+                        console.log('edited' + obj.data)
+                        obj.type = "img";
+                        message.content.push(obj);
+
+                    }
+                    else if (item.includes('url')){
+                        obj.data = item.replace("[url]", "").replace("[/url]", "").trim().replace(/\\n|\/n/,"");
+                        obj.type = "url";
+                        message.content.push(obj);
+
+                    }else{
+                        let lines = item.split("\n");
+                        lines.forEach((line, index) => {
+                            let obj = {
+                                data: line,
+                                type: "text",
+                            };
+                            message.content.push(obj);
+                        });
+                    }
+
+
+
+          });
             this.listMessages.push(message);
 
             window.scroll(0, document.getElementById("messageGlobal").scrollHeight + document.getElementById("spacer").scrollHeight);
