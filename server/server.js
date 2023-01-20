@@ -7,7 +7,7 @@ const io = new Server(httpServer, {
         methods: ["GET", "POST"]
     }
 });
-const colors = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF", "#000000", "#FFFFFF"];
+const colors = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF", "#FFFFFF"];
 let users = [];
 let messages = [];
 /**
@@ -16,10 +16,17 @@ let messages = [];
  * Send new user to all instances except the new instance (emit : addUser)
  */
 io.on("connection", (socket) => {
-    socket.on("handcheck", () => {
+    socket.on("handcheck", (cl) => {
+        let color;
+        if(cl){
+            color=cl;
+        }else
+        {
+            color = getColor();
+        }
         let user = {
             id: socket.id,
-            color : getColor()
+            color : color
         }
         let handcheck = {
             users: users,
@@ -35,10 +42,18 @@ io.on("connection", (socket) => {
     socket.on('newMessage', (message) => {
         if(message.content !== "" && message.date !== ""){
             messages.push(message);
+            if(messages.length > 100){
+                messages.shift();
+            }
             users.forEach((user) => {
+                if(user.id !== socket.id){
                 emitSocket("newMessage", user.id, message);
+                }
             });
         }
+    });
+    socket.on('disconnect', function(){
+        users = users.filter((user) => user.id !== socket.id);
     });
 
 });
