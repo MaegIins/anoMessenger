@@ -70,8 +70,6 @@ let myVueApp = Vue.createApp({
 
             message.content = [];
           content.forEach((item, index) => {
-
-
                     let obj = {
                         data: "",
                         type: "",
