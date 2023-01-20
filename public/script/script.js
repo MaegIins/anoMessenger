@@ -42,22 +42,22 @@ let myVueApp = Vue.createApp({
     },
     methods: {
         sendMessage() {
-            let date = new Date();
-            let h = date.getHours();
-            let m = date.getMinutes();
-            if(h<10){
-                h = "0"+h;
-            }
-            if(m<10){
-                m = "0"+m;
-            }
-            let messageSent = {
-                message: this.message,
-                date: h+":"+m,
-                color: this.color,
-            }
-            if (this.message !== '') {
 
+            if (this.message.trim() !== '') {
+                let date = new Date();
+                let h = date.getHours();
+                let m = date.getMinutes();
+                if(h<10){
+                    h = "0"+h;
+                }
+                if(m<10){
+                    m = "0"+m;
+                }
+                let messageSent = {
+                    message: this.message,
+                    date: h+":"+m,
+                    color: this.color,
+                }
                 this.addMessage(messageSent)
                 this.socket.emit('newMessage', messageSent);
 
