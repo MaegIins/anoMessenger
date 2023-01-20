@@ -26,7 +26,6 @@ body {
 #container #messageGlobal #dispMessage {
   background: linear-gradient(100deg, #26dcff, rgb(99, 199, 218));
   border-radius: 15px;
-  padding: 10px;
   margin: 25px;
   font-size: 1.5em;
   position: relative;
@@ -112,6 +111,9 @@ input[type=color] {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #ffffff;
+}
+#chars{
+  padding: 3px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,6 +1,6 @@
 //anoMessenger
 //
-//@author : 	Tristan Belmont
+//@author : 	Tristan Belmont / Kévin Bully Cimbaluria
 //
 
 
