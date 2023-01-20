@@ -3,3 +3,4 @@
 - Textarea pour mettre plusieurs lignes
 - Gérer l'overflow 
 - Notifs 
+- Gérer #000000
