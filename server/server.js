@@ -30,14 +30,10 @@ io.on("connection", (socket) => {
             color : color
         }
         let handcheck = {
-            users: users,
             messages: messages,
             color : user.color
         }
         emitSocket("handcheck", socket.id, handcheck);
-        users.forEach((socketuser) => {
-          emitSocket("addUser", socketuser.id, user);
-        });
         users.push(user);
     });
     socket.on('newMessage', (message) => {
