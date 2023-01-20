@@ -26,11 +26,17 @@ body {
 #container #messageGlobal #dispMessage {
   background: linear-gradient(100deg, #26dcff, rgb(99, 199, 218));
   border-radius: 15px;
-  padding: 10px;
   margin: 25px;
   font-size: 1.5em;
   position: relative;
   color: #000000;
+}
+#dispMessage div{
+  padding: 15px;
+}
+#dispMessage div img{
+  max-width: 250px;
+    max-height: 250px;
 }
 #container #messageGlobal #dispMessage #time {
   font-size: 0.7em;
@@ -80,9 +86,13 @@ body {
   align-items: center;
   text-align: center;
   margin: 3px;
+  margin-right: 10px;
   cursor: pointer;
 }
-
+p{
+  padding : 0;
+  margin: 0;
+}
 input[type=color] {
   -webkit-appearance: none;
   border: none;
@@ -101,6 +111,9 @@ input[type=color] {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #ffffff;
+}
+#chars{
+  padding: 3px;
 }
 
 /*# sourceMappingURL=style.css.map */
